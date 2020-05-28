@@ -15,6 +15,22 @@ categories:
 
 这段文本不应该展示
 
+## 多台机器同步
+git clone git@github.com:bigwritejc/bigwritejc.github.io.git blog
+
+cd blog 
+sudo apt-get install nodejs
+sudo apt-get install npm
+
+sudo npm install hexo-cli -g
+sudo npm install hexo-deployer-git --save
+
+npm audit fix
+
+hexo g
+hexo s
+
+
 ## 关于本地图片的引用
 ![](hexo-nexT/hw1.jpg)
 
