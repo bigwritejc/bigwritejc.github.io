@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="IP模块提供不可靠，无连接的数据报传送服务  不可靠： 不保证数据报能成功送达  无连接： IP模块不维护任何关于后续数据报的状态信息，每个数据报的处理是相互独立的 IP首部 IP路由选择IP模块可以从本地或者网络接口接收数据报并发送  其中本地生成的数据报可以来自，TCP, UDP, ICMP 或者IGMP  当IP模块收到一份数据报时  首先检查数据报目的地址是否为本机IP地址，或广播地址，">
+<meta name="description" content="IP模块提供不可靠，无连接的数据报传送服务  不可靠： 不保证数据报能成功送达  无连接： IP模块不维护任何关于后续数据报的状态信息，每个数据报的处理是相互独立的 IP首部 IP路由选择IP模块可以从本地或者网络接口接收数据报并发送  其中本地生成的数据报可以来自，TCP, UDP, ICMP 或者IGMP  当IP模块收到一份数据报时  检查数据报目的地址是否为本机IP地址，或广播地址  是，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IP">
 <meta property="og:url" content="http://yoursite.com/2020/05/28/tcpip%E7%BD%91%E7%BB%9C%E5%B1%82/index.html">
 <meta property="og:site_name" content="for life, for fun">
-<meta property="og:description" content="IP模块提供不可靠，无连接的数据报传送服务  不可靠： 不保证数据报能成功送达  无连接： IP模块不维护任何关于后续数据报的状态信息，每个数据报的处理是相互独立的 IP首部 IP路由选择IP模块可以从本地或者网络接口接收数据报并发送  其中本地生成的数据报可以来自，TCP, UDP, ICMP 或者IGMP  当IP模块收到一份数据报时  首先检查数据报目的地址是否为本机IP地址，或广播地址，">
+<meta property="og:description" content="IP模块提供不可靠，无连接的数据报传送服务  不可靠： 不保证数据报能成功送达  无连接： IP模块不维护任何关于后续数据报的状态信息，每个数据报的处理是相互独立的 IP首部 IP路由选择IP模块可以从本地或者网络接口接收数据报并发送  其中本地生成的数据报可以来自，TCP, UDP, ICMP 或者IGMP  当IP模块收到一份数据报时  检查数据报目的地址是否为本机IP地址，或广播地址  是，">
 <meta property="og:image" content="http://yoursite.com/2020/05/28/tcpip%E7%BD%91%E7%BB%9C%E5%B1%82/ip.png">
 <meta property="article:published_time" content="2020-05-28T15:26:45.000Z">
-<meta property="article:modified_time" content="2020-05-29T03:54:43.496Z">
+<meta property="article:modified_time" content="2020-05-29T04:01:45.657Z">
 <meta property="article:author" content="bigwritejc">
 <meta property="article:tag" content="tcp&#x2F;ip">
 <meta property="article:tag" content="网络协议">
@@ -344,18 +344,14 @@
 <p>其中本地生成的数据报可以来自，TCP, UDP, ICMP 或者IGMP </p>
 <p>当IP模块收到一份数据报时</p>
 <ol>
-<li><p>首先检查数据报目的地址是否为本机IP地址，或广播地址， 是则转发数据报到首部协议字段指定的模块进行处理</p>
+<li><p>检查数据报目的地址是否为本机IP地址，或广播地址</p>
+<p> 是，转发数据报到首部协议字段指定的模块进行处理</p>
+<p> 不是，查询内存中路由表进行转发</p>
 </li>
-<li><p>不是，则判断IP是否被设置为路由功能，非路由功能则丢弃，是则搜索内存中路由表进行转发 </p>
-</li>
-</ol>
-<h2 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h2><p>搜索路由表</p>
-<ol>
-<li><p>寻找与目的IP地址完全匹配的表项</p>
-</li>
-<li><p>寻找与目的网络号匹配的表项 </p>
-</li>
-<li><p>寻找默认表项 </p>
+<li><p>搜索路由表</p>
+<p> a). 寻找与目的IP地址完全匹配的表项</p>
+<p> b). 寻找与目的网络号匹配的表项 </p>
+<p> c). 寻找默认表项 </p>
 </li>
 </ol>
 
@@ -534,7 +530,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IP首部"><span class="nav-number">1.</span> <span class="nav-text">IP首部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP路由选择"><span class="nav-number">2.</span> <span class="nav-text">IP路由选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由表"><span class="nav-number">3.</span> <span class="nav-text">路由表</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IP首部"><span class="nav-number">1.</span> <span class="nav-text">IP首部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP路由选择"><span class="nav-number">2.</span> <span class="nav-text">IP路由选择</span></a></li></ol></div>
             
 
           </div>
